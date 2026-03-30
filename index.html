@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mendoza Select Tours - Wine, Mountain & Gourmet Experiences</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables de colores inspirados en vino y montaña */
+        :root {
+            --wine: #8B2635;
+            --malbec: #6A2C3E;
+            --mountain:#2E4C3D ;
+            --gold: #D4AF37;
+            --light-beige:#F5F1E8; 
+            --dark-text: #2C2C2C;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+        
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--light-beige);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--mountain);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--wine);
+            color: #FFFFFF;
+            padding: 14px 30px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--malbec);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--dark-text);
+        }
+        
+        .btn-gold:hover {
+            background-color: #c19b2e;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Header y Navegación */
+        header {
+            background-color: #ececdc;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--mountain);
+            letter-spacing: 3px;
+        }
+        
+        .logo-tagline {
+            font-size: 0.9rem;
+            color: var(--malbec);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        
+        .logo-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--wine);
+            font-style: italic;
+            margin-top: 5px;
+            border-top: 1px solid var(--gold);
+            padding-top: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--mountain);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--wine);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--mountain);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 76, 61, 0.8), rgba(46, 76, 61, 0.7)), url('https://images.unsplash.com/photo-1587332066582-21dd50b75c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color:#8B5A2B ;
+            text-align: center;
+            padding: 180px 0 120px;
+        }
+        
+        .hero h1 {
+            color:#f3ede0 ;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--light-beige);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Experiencias */
+        .experiences {
+            background-color: white;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .experience-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            background-color: var(--light-beige);
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .experience-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .experience-info {
+            padding: 25px;
+        }
+        
+        .experience-info h3 {
+            margin-bottom: 15px;
+            color: var(--mountain);
+            font-size: 1.5rem;
+        }
+        
+        .experience-info p {
+            margin-bottom: 20px;
+        }
+        
+        .experience-icon {
+            font-size: 2rem;
+            color: var(--wine);
+            margin-bottom: 15px;
+        }
+        
+       /* --- NUEVO ESTILO PARA TARJETAS DE TOURS (TIPO "REVEAL") --- */
+        .featured-tours {
+            background-color: #f8f5ef;
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tour-card-modern {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: auto; /* Permite que la tarjeta crezca según su contenido */
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .tour-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(106, 44, 62, 0.3);
+        }
+
+        .tour-img-modern {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .tour-content-modern {
+            padding: 25px 20px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tour-title-modern {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--malbec);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .tour-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--mountain);
+            font-size: 0.9rem;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .tour-meta i {
+            color: var(--gold);
+            margin-right: 5px;
+            width: 16px;
+        }
+
+        .tour-preview {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .btn-tour-more {
+            background: none;
+            border: 2px solid var(--wine);
+            color: var(--wine);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: fit-content;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        .btn-tour-more:hover {
+            background-color: var(--wine);
+            color: white;
+        }
+
+        .btn-tour-more i {
+            transition: transform 0.3s;
+        }
+
+        .btn-tour-more.active i {
+            transform: rotate(180deg);
+        }
+
+        .tour-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, margin 0.3s;
+            background-color: #fefaf0;
+            border-radius: 12px;
+            padding: 0 15px;
+            margin-top: 0;
+            border-left: 3px solid var(--gold);
+        }
+
+        .tour-details.show {
+            max-height: none; /* permite crecimiento ilimitado según el contenido */
+            opacity: 1;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .tour-details p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .tour-details strong {
+            color: var(--malbec);
+            font-weight: 600;
+        }
+        /* --- FIN NUEVOS ESTILOS --- */
+        
+        /* Bodegas */
+        .wineries {
+            background-color: white;
+        }
+        
+        .winery-slider {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            margin-top: 40px;
+            overflow-x: auto;
+            align-items: stretch;
+        }
+        
+        .winery-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .winery-slider::-webkit-scrollbar-thumb {
+            background-color: var(--wine);
+            border-radius: 4px;
+        }
+        
+        /* Fuerza ancho/alto iguales para las tarjetas de bodegas */
+        .winery-card {
+            flex: 0 0 48%;
+            max-width: 520px;
+            height: 360px;
+            background-color: var(--light-beige);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .winery-img {
+            height: 45%;
+            width: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .winery-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .winery-info h3 {
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            font-size: 1.15rem;
+            color: var(--malbec);
+        }
+        
+        
+        /* Testimonios */
+        .testimonials {
+            background: linear-gradient(to right, var(--mountain), var(--malbec));
+            color: white;
+        }
+        
+        .testimonials h2 {
+            color: white;
+        }
+        
+        .testimonials h2:after {
+            background-color: var(--gold);
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-text:before, .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.5;
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .client-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--gold);
+        }
+        
+        /* Contacto */
+        .contact {
+            background-color: var(--light-beige);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            background-color: white;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 30px;
+            color: var(--malbec);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.3rem;
+            color: var(--wine);
+            margin-right: 15px;
+            width: 30px;
+            margin-top: 5px;
+        }
+
+
+   .whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+.whatsapp-float:hover {
+    background-color: #1ebe5d;
+}
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
+
+        /* Footer */
+        footer {
+            background-color: var(--mountain);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .footer-logo-tagline {
+            font-size: 0.9rem;
+            color: var(--light-beige);
+            margin-bottom: 10px;
+        }
+        
+        .footer-logo-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            font-style: italic;
+            border-top: 1px solid var(--gold);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--mountain);
+        }
+        
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        .header-logo {
+            width: 90px;
+            height: auto;
+            margin-right: 50px;
+        }
+
+        .logo-container-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-main {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container">
+            <nav>
+                <img src="logo.jpeg" alt="Mendoza Select Tours Logo" class="header-logo">
+                <div class="logo-container logo-container-flex">
+                    <div class="logo-main">MENDOZA SELECT TOURS</div>
+                    <div class="logo-tagline">Wine, Mountain & Gourmet Experiences</div>
+                    <div class="logo-sub">LOS ANDES MALBEC</div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#experiencias">Experiencias</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#bodegas">Bodegas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Descubre la Esencia de Mendoza</h1>
+            <p>Vive experiencias únicas entre viñedos, montañas y la mejor gastronomía argentina. Tours exclusivos diseñados para los verdaderos amantes del vino y la naturaleza.</p>
+            <div class="hero-btns">
+                <a href="#tours" class="btn">Ver Tours</a>
+                <a href="#contacto" class="btn btn-gold">Consultar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencias -->
+    <section class="experiences" id="experiencias">
+        <div class="container">
+            <h2>Nuestras Experiencias</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <img src="tras.jpeg" alt="tras" class="experience-img">
+                    
+                    <div class="experience-info">
+                        <div class="experience-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3>Traslados</h3>
+                        <p>Contamos con traslados desde y hacia el aeropuerto de Mendoza, así como también traslados dentro de la región para visitas a bodegas y puntos turísticos.</p>
+                        
+                    </div>
+                </div>
+
+              <div class="experience-card">
+                    <img src="hospedage.jpg" alt="hospedaje" class="experience-img">
+                    <div class="experience-info">
+                        <div class="experience-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h3>Hospedaje</h3>
+                        <p>Difruta de nuetros hoteles en Mendoza, con servicios completos y ubicación privilegiada para visitar bodegas y puntos turísticos.</p>
+                        
+                    </div>
+                </div>
+  
+
+
+            <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gastronomía" class="experience-img">
+                    <div class="experience-info">
+                        <div class="experience-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>RESTAURANTES</h3>
+                        
+                        <p>Los Andes Malbec te acerca a lo mejor de la gastronomía de Mendoza. Desde propuestas gourmet hasta sabores tradicionales, cada experiencia está pensada para que disfrutes la identidad local, los productos de temporada y la esencia del territorio. Diseñamos recorridos que combinan calidad, paisajes
+                            <li>Restaurantes destacados: 
+                                Pimienta Negra, Quinchos de Ortubia, Auténtico, Figo  y El Gallego, entre otros.</li>
+                    </p>
+                         
+                    </div>    
+     
+                </div>
+
+
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tour de Vino" class="experience-img">
+                    <div class="experience-info">
+                        <div class="experience-icon">
+                            <i class="fas fa-wine-glass-alt"></i>
+                        </div>
+                        <h3>Experiencias Enológicas</h3>
+                        <p>Una experiencia en cada bodega Descubrí la riqueza del mundo vitivinícola a través de Bodegas Familiares y bodegas modernas, donde la tradición y la innovación.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="experience-card">
+                    <img src="AVENTURA.jpeg" alt="Montaña" class="experience-img">
+                    <div class="experience-info">
+                        <div class="experience-icon">
+                            <i class="fas fa-parachute-box"></i>
+                             <i class="fas fa-water"></i>
+                              <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>Deporte y Aventura</h3>
+                        <p>Difruta de la experiencia en parapente y Vuelo en Globo, desde lo alto de las montañas de Mendoza, con vistas panorámicas del valle y la Cordillera.</p>
+                        <p>Aventura en las aguas bravías de los ríos de Mendoza, con rutas adaptadas para todos los niveles de experiencia.</p>
+                       
+                    </div>
+                </div>
+        
+                
+
+
+              
+                
+            </div>
+        </div>
+    </section>
+  
+                        
+
+
+
+  <!-- Tours Destacados - NUEVO DISEÑO DE TARJETAS -->
+    <section class="featured-tours" id="tours">
+        <div class="container">
+            <h2>Tours Destacados</h2>
+            <div class="tour-grid">
+                <!-- Tour 1: Volcán Malacara -->
+                <div class="tour-card-modern">
+                    <img src="VolcanMalacara.jpg" alt="Ruta del Volcán Malacara" class="tour-img-modern">
+                    <div class="tour-content-modern">
+                        <h3 class="tour-title-modern">Ruta del Volcán Malacara</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-clock"></i> Días completo / 2 Días</span>
+                            <span><i class="fas fa-mountain"></i> Malargüe</span>
+                        </div>
+                        <p class="tour-preview">Una aventura única caminando por el interior de un volcán erosionado, donde podrás recorrer sus formaciones geológicas...</p>
+                        
+                        <!-- Botón Ver más (único para esta tarjeta) -->
+                        <button class="btn-tour-more" onclick="toggleTourDetails(this)">
+                            <span>Ver más</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <!-- Detalles ocultos que se muestran al hacer clic -->
+                        <div class="tour-details">
+                            <p><strong>📍 Incluye (Día completo):</strong> Traslado ida y vuelta desde Mendoza o San Rafael, Trekking guiado dentro del volcán, Seguro de actividad, Tiempo libre para fotografías. Ideal para amantes de la naturaleza y el turismo aventura.</p>
+                            <p><strong>🏕️ Experiencia 2 Días:</strong> Vive la experiencia completa combinando aventura y descanso en el sur mendocino. Día 1: Viaje hacia Malargüe + Volcán Malacara + noche en alojamiento seleccionado. Día 2: Recorrido por paisajes naturales de la zona + regreso. Incluye traslados, coordinación permanente y asistencia personalizada.</p>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <!-- Tour 2:   Bodegas -->
+                <div class="tour-card-modern">
+                    <img src="vino.png" alt=" Bodegas" class="tour-img-modern">
+                    <div class="tour-content-modern">
+                        <h3 class="tour-title-modern">Bodegas</h3>
+                        <div class="tour-meta">
+                           
+                            <span><i class="fas fa-clock"></i> Día completo</span>
+                           <span><i class="fas fa-wine-glass-alt"></i> Tour de Vinos</span>
+                        </div>
+                        <div class="tour-meta">
+                            <p><strong>🍇 Destinos:</strong> Las bodegas de Mendoza combinan tradición, paisaje y excelencia en cada copa.
+                            Viví una experiencia única entre viñedos, montaña y el mejor Malbec del mundo.</p>
+                        </div> 
+                        <p class="tour-preview"></p>
+                        
+                        <button class="btn-tour-more" onclick="toggleTourDetails(this)">
+                            <span>Ver más</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="tour-details">
+                            <p><strong>🚣 Incluye:</strong> Bodegas</p>
+                            <ul>
+                                <li>🍷 <strong>Bodega Toso</strong>
+                                    <br>Opciones: Visita guiada + degustación, Visita guiada + degustación + almuerzo maridado
+                                    <br>Incluye traslado ida y vuelta.
+                                </li>
+                                <li>🍷 <strong>Casa Agostino</strong>
+                                    <br>Opciones: Visita + degustación, Visita + almuerzo gourmet
+                                    <br>Experiencia boutique en entorno natural.
+                                </li>
+                                <li>🍷 <strong>Iaccarini (San Rafael)</strong>
+                                    <br>Opciones: Visita + degustación, Visita + almuerzo regional
+                                </li>
+                                <li>🍷 <strong>Tornaghi (San Rafael)</strong>
+                                    <br>Incluye: Traslado por el día desde Mendoza
+                                    <br>Visita guiada, Degustación, Desayunos y almuerzo en la bodega.
+                                    <br> Vuelos diarios a Buenos Aires desde el aeropuerto de San Rafael. lo que facilita la combinación de esta experiencia con otras actividades en Mendoza o el sur mendocino.
+                                </li>
+                                <li>🍷 <strong>Selada Wines</strong>
+                                    <br>Visita guiada + degustación de vinos premium.
+                                    <br>Experiencia personalizada en bodega familiar.
+                                </li>
+                                <li>🍷 <strong>Laureano Gómez</strong>
+                                    <br>Opciones: Visita guiada + degustación, Visita + almuerzo maridado
+                                    <br>Ideal para quienes buscan una experiencia tradicional mendocina
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+             <!-- Tour 3:  Deporte  y Aventura -->
+                <div class="tour-card-modern">
+                    <img src="Aventurero.jpg" alt="Aventurero" class="tour-img-modern">
+                    <div class="tour-content-modern">
+                        <h3 class="tour-title-modern"> Deporte  y Aventura</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-clock"></i> 3 días / 2 noches</span>
+                            <span><i class="fas fa-parachute-box"></i> Mendoza</span>
+                        </div>
+                        <p class="tour-preview">Mendoza es un paraíso agreste donde la cordillera y el desierto se encuentran para regalarte experiencias profundas en la naturaleza: aire puro, cielos inmensos y paisajes que merecen cámara y alma abiertas</p>
+                        
+                        <button class="btn-tour-more" onclick="toggleTourDetails(this)">
+                            <span>Ver más</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="tour-details">
+                            <ul>
+                                <li>🌳 <strong>Experiencia Kalinaw – Dique Los Reyunos</strong>
+                                    <br>Dentro de Club Hidyn – Dique Los Reyunos 📍  San Rafael
+                                     Una propuesta ideal para combinar naturaleza, agua y adrenalina en uno de los paisajes más impactantes del sur mendocino.
+                                    <br>Actividades Disponibles
+                                    <br>Ascenso guiado al Cerro Arco con vistas panorámicas de la ciudad y la Cordillera.
+                                    <br>Incluye traslado ida y vuelta, guía especializado, tiempo libre para fotografías.
+                                    <br>Actividades Disponibles: Tirolesa
+                                     <br> sobre el lago con vista panorámica a las montañas.
+                                     <br> mínima: 6 años, Peso máximo: 100 kg, Sujeto a condiciones de salud
+                                </li>
+                                <li>🌳 <strong>🦅 Cóndor Fly</strong>
+                                    <br>Experiencia aérea de mayor adrenalina para quienes buscan emociones fuertes.
+                                </li>
+                                <li><strong>⛵ Catamarán</strong>
+                                    <br>Recorrido de aproximadamente 1 hora por el lago, con vista a la emblemática Isla de los Elefantes.
+                                    <br> Actividad apta para todo público.
+                                </li>
+                                <li><strong>🌴 Catamarán al Bosque de los Chañares </strong></li>
+                                    <br>Excursión cerrada de 2 hs 30 min.
+                                    <br> Incluye: Traslado ida y vuelta en catamarán (1 hora total)
+                                    <br>Visita al Bosque de los Chañares (1 hora)
+                                    <br>Paso previo por Isla de los Elefantes, Acceso libre al parador Kalinaw al regreso
+                                    <br> Una experiencia única en un parador oculto en el centro del lago.
+                                </li>
+                                <li><strong>🚣 Canoas – Kayaks – Hidropedales – Stand Up Paddle</strong>
+                                    <br>Alquiler por hora. 
+                                    <br>  mínima: 5 años
+                                    <br> Para disfrutar en familia o con amigos.
+                                    <br>Consultas y reservas: +54 261 5175763
+                                </li>
+                                <li><strong>Experiencia Villa Bonita – San Rafael</strong>
+                                    <br>Ubicada en un entorno natural privilegiado, Villa Bonita ofrece descanso, paisaje y actividades recreativas en el corazón del sur mendocino.
+                                    <br>  Propuesta de Experiecia:
+                                    <br>Alojamiento en entorno natural
+                                    <br>Acceso a espacios verdes y recreativos
+                                    <br> Opcional combinación con actividades en Los Reyunos
+                                    <br> Opcional: rafting en el Río Atuel
+                                    <br> Opcional: visita a bodegas locales
+                                    <br> Ideal para: 
+                                    <br> ✔️ Escapadas románticas
+                                    <br> ✔️ Viajes en familia
+                                    <br> ✔️ Grupos de amigos
+                                    <br> ✔️ Turismo corporativo
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+    <!-- Tour 4: Reserva Villavicencioo -->
+     <div class="tour-card-modern">
+                    <img src="reserva.jpg" alt="Experiencia Reserva Villavicencio" class="tour-img-modern">
+                    <div class="tour-content-modern">
+                        <h3 class="tour-title-modern">Reserva Villavicencio</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-clock"></i>  medio dia / tarde</span>
+                            <span><i class="fas fa-wind"></i> Mendoza</span>
+                        </div>
+                        <p class="tour-preview">Reserva Natural Villavicencio
+                       Recorrido por uno de los paisajes más emblemáticos de Mendoza.
+                   Incluye:
+                   <br>Traslado
+                    <br>Guía
+                    <br> panorámicas del antiguo hotel y camino Caracoles
+                    <br> Ideal para turismo contemplativo y fotografía.
+                    <br> Recorrido praticar Arbolismo, senderismo o simplemente disfrutar del paisaje.</p>
+                    
+                         <button class="btn-tour-more" onclick="toggleTourDetails(this)">
+                            <span>Ver más</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="tour-details">
+                            <p><strong>🪂 Opciones de traslado:</strong> Traslado coordinado Seguro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    
+        </div>
+     
+
+    </section>
+
+   
+                
+         
+
+
+    <!-- Bodegas -->
+    <section class="wineries" id="bodegas">
+        <div class="container">
+            <h2>Bodegas Destacadas</h2>
+            <div class="winery-slider">
+                <div class="winery-card">
+                    <img src="bodega1.jpg" alt="Bodega Achaval-Ferrer" class="winery-img">
+                    <div class="winery-info">
+                        <h3>BODEGAS TOSO</h3>
+                        <p>Bodegas Toso ofrece visitas guiadas por sus viñedos e instalaciones, donde los visitantes
+                         conocen el proceso de elaboración del vino y finalizan con una degustación.</p>
+                    </div>
+                </div>
+                
+                <div class="winery-card">
+                    <img src="bodega2.jpeg" alt="Bodega Achaval-Ferrer" class="winery-img">
+                    <div class="winery-info">
+                        <h3>BODEGA  AGOSTINO </h3>
+                        <p>Famosa por sus vinos de terroir y baja producción. Experiencia íntima con degustación de Malbecs de viñedos antiguos.</p>
+                    </div>
+                </div>
+                
+                <div class="winery-card">
+                    <img src="bodega3.jpeg" alt="Bodega Tornaghi" class="winery-img">
+                    <div class="winery-info">
+                        <h3>BODEGA TORNAGHI </h3>
+                        <p>Bodega histórica de 1890 en San Rafael. Ofrece una experiencia única en sus cavas centenarias con vinos artesanales de producción limitada y gran carácter regional.</p>
+                    </div>
+                </div>
+                
+               <div class="winery-card">
+                    <img src="selda.png" alt="Bodega Tornaghi" class="winery-img">
+                    <div class="winery-info">
+                        <h3>BODEGA Selada Wines </h3>
+                        <p>Especialistas en vinos de autor de baja producción. Destaca por sus Malbecs de viñedos antiguos y un enfoque artesanal que busca la máxima expresión natural del terroir sanrafaelino.</p>
+                    </div>
+                </div>
+                 <div class="winery-card">
+                    <img src="Gomez.png" alt="Bodega Tornaghi" class="winery-img">
+                    <div class="winery-info">
+                        <h3>Bodega Laureano Gómez</h3>
+                        <p>Vinos de autor con el sello personal de Laureano Gómez en el Valle de Uco. Una bodega familiar que prioriza la expresión natural de la uva y la excelencia en partidas limitadas de alta gama.</p>
+                    </div>
+                </div>
+
+
+                <div class="winery-card">
+                    <img src="BodegaIaccarini.jpg" alt="Bodega Iaccarini" class="winery-img">
+                    <div class="winery-info">
+                        <h3>BODEGA IACCRINI </h3>
+                        <p>Famosa por sus vinos de terroir y baja producción. Experiencia íntima con degustación de Malbecs de viñedos antiguos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Testimonios</h2>
+            <div class="testimonial-container">
+                <p class="testimonial-text">"Mendoza Select Tours superó todas nuestras expectativas. El tour por las bodegas fue excepcional, con catas privadas y un conocimiento enológico impresionante. ¡Volveremos!"</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Laura M." class="client-img">
+                    <div>
+                        <h4>Laura Martínez</h4>
+                        <p>Barcelona, España</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>Contacto</h2> 
+            <div class="contact-container">
+                
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Oficina Central</h4>
+                            <p>Av. San Martín 1234, Mendoza, Argentina</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+54 261 5175763</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@mendozaselecttours.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Sábado: 8:00 - 20:00<br>Domingos: 9:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    </section>
+ <!-- Botón flotante de WhatsApp -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<a href="https://wa.me/5492615175763" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">MENDOZA SELECT TOURS</div>
+                        <div class="footer-logo-tagline">Wine, Mountain & Gourmet Experiences</div>
+                        <div class="footer-logo-sub">LOS ANDES MALBEC</div>
+                    </div>
+                    <p>Especialistas en experiencias premium de vino, montaña y gastronomía en Mendoza, Argentina. Creando recuerdos inolvidables.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/losandesmalbec/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@losandesmalbec?_r=1&_t=ZS-9476Z78XKtE" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/silvia-villegas-43142b391?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Tours Populares</h3>
+                    <ul>
+                        
+                        <li><a href="#">Tour</a></li>
+                        <li><a href="#">Experiencia Gourmet</a></li>
+                        <li><a href="#">Bodegas</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#experiencias">Experiencias</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#bodegas">Bodegas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Mendoza Select Tours. Todos los derechos reservados. | Diseñado para amantes del vino y la aventura</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+         // --- NUEVA FUNCIÓN PARA TOGGLE DE DETALLES DE TOURS ---
+        function toggleTourDetails(button) {
+            // Encuentra el contenedor de detalles dentro de la misma tarjeta
+            const card = button.closest('.tour-card-modern');
+            const details = card.querySelector('.tour-details');
+            const icon = button.querySelector('i');
+            
+            if (details) {
+                details.classList.toggle('show');
+                button.classList.toggle('active');
+                
+                // Cambiar el texto del botón
+                const span = button.querySelector('span');
+                if (details.classList.contains('show')) {
+                    span.textContent = 'Ver menos';
+                } else {
+                    span.textContent = 'Ver más';
+                }
+            }
+        }
+
+        
+        // Formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = this.querySelector('input[name="nombre"]').value.trim();
+            const email = this.querySelector('input[name="email"]').value.trim();
+            const tour = this.querySelector('select[name="tour"]').value;
+            const mensaje = this.querySelector('textarea[name="mensaje"]').value.trim();
+            
+            if(!nombre || !email || !tour || !mensaje) {
+                alert('Por favor, completa todos los campos requeridos.');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(email)) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                return;
+            }
+            
+            alert('¡Gracias por tu consulta! Nos pondremos en contacto contigo en las próximas 24 horas.');
+            this.reset();
+        });
+        
+        // Navegación suave 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
